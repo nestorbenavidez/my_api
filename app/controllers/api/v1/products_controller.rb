@@ -27,7 +27,7 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def edit # update product
+  def edit # update product#
     product = Product.find_by(id: params[:id])
     if product
       product = Product.update(
