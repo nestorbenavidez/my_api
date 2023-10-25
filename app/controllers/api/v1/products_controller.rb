@@ -28,6 +28,20 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def edit
+    product = Product.find_by(id: params[:id])
+    if product
+      product = Product.update(
+        name: prod_params[:name],
+        brand: prod_params[:brand],
+        price: prod_params[:price],
+        description: prod_params[:description]
+      )
+      if product.save
+        render json: product , status: 200
+      else
+        render json: { :error => "error 666" }
+      end
+    end
   end
 
   def delete
