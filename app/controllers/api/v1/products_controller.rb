@@ -47,7 +47,6 @@ class Api::V1::ProductsController < ApplicationController
   def delete ## Delete Product###
     product = Product.find_by(id: params[:id])
     if product
-      Product.delete
       if product.delete
         render json: product , status: 200
       else
@@ -57,7 +56,7 @@ class Api::V1::ProductsController < ApplicationController
   end
 
 
-  def count ##Count the total of product
+  def count ##Count the total of product##
     product = Product.count
     render json: product, status: 200
 
