@@ -44,7 +44,7 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def delete ## Delete Product##
+  def delete ## Delete Product###
     product = Product.find_by(id: params[:id])
     if product
       Product.delete
