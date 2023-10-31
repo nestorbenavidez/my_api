@@ -44,10 +44,24 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def delete
+  def delete ## Delete Product##
+    product = Product.find_by(id: params[:id])
+    if product
+      Product.delete
+      if product.delete
+        render json: product , status: 200
+      else
+        render json: { :error => "Product no Found" }
+      end
+    end
   end
 
-  def count
+
+  def count ##Count the total of product
+    product = Product.count
+    render json: product, status: 200
+
+
   end
 
   def move_product
